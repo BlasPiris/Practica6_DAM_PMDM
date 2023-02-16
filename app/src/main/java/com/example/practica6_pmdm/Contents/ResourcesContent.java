@@ -1,10 +1,10 @@
-package com.example.practica6_pmdm;
+package com.example.practica6_pmdm.Contents;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import androidx.collection.ArraySet;
+import com.example.practica6_pmdm.Pojos.Resource;
 
 import org.json.JSONArray;
 import org.json.JSONException;

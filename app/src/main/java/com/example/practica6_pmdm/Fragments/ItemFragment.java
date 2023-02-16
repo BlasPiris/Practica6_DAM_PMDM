@@ -1,4 +1,4 @@
-package com.example.practica6_pmdm;
+package com.example.practica6_pmdm.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.practica6_pmdm.Activities.MainActivity;
+import com.example.practica6_pmdm.Adapters.MyItemRecyclerViewAdapter;
+import com.example.practica6_pmdm.Contents.ResourcesContent;
+import com.example.practica6_pmdm.Pojos.Resource;
+import com.example.practica6_pmdm.R;
+
 import java.util.ArrayList;
 
 
@@ -19,6 +25,8 @@ import java.util.ArrayList;
  * A fragment representing a list of Items.
  */
 public class ItemFragment extends Fragment {
+
+    MainActivity ma;
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -49,12 +57,16 @@ public class ItemFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+
+        ma= (MainActivity) getActivity();
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -67,7 +79,7 @@ public class ItemFragment extends Fragment {
             }
             ResourcesContent rc=new ResourcesContent();
             ArrayList<Resource> resources=rc.loadResourcesFromJSON(getContext());
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(resources));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(resources,ma.getSettings()));
         }
         return view;
     }

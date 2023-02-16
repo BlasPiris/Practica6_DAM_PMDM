@@ -1,4 +1,4 @@
-package com.example.practica6_pmdm;
+package com.example.practica6_pmdm.Pojos;
 
 import android.graphics.Bitmap;
 
