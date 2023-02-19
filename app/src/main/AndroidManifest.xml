@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.practica6_pmdm">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Practica6_PMDM"
         tools:targetApi="31">
+        <activity
+            android:name=".Activities.MediaActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Activities.MainActivity"
             android:exported="true">

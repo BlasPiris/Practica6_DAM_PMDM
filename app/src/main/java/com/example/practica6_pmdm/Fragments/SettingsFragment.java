@@ -16,8 +16,10 @@ import com.example.practica6_pmdm.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat implements Preference.OnPreferenceChangeListener {
 
+    //VARIABLES DE LOS SWITCH DE CONFIGURACIÓN
 private SwitchPreferenceCompat audio,video,streaming;
 
+//MAIN ACTIVITY
 MainActivity ma;
 
 
@@ -26,8 +28,10 @@ MainActivity ma;
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
+        //OBTENEMOS UN OBJETO MAINACTIVITY
         ma= (MainActivity) getActivity();
 
+        //PREDEFINIMOS LA POSCION DE LOS SWITCH DEPENDIENDO DE LA CONFIGURACION ACTUAL
         audio=findPreference("audio");
         audio.setOnPreferenceChangeListener(this);
         audio.setChecked(ma.getSettings()[0]);
@@ -40,20 +44,12 @@ MainActivity ma;
         streaming.setOnPreferenceChangeListener(this);
         streaming.setChecked(ma.getSettings()[2]);
 
-
-        ma= (MainActivity) getActivity();
-
-
-
-
-
-
-
     }
-
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+
+        //CAMBIAMOS LA CONFIGURACION DE RECURSOS DE AUDIO
         if(preference==audio){
           if(audio.isChecked()){
               ma.changeSetting(0,false);
@@ -62,6 +58,7 @@ MainActivity ma;
           }
         }
 
+        //CAMBIAMOS LA CONFIGURACION DE RECURSOS DE VIDEO
         if(preference==video){
             if(video.isChecked()){
                 ma.changeSetting(1,false);
@@ -70,6 +67,7 @@ MainActivity ma;
             }
         }
 
+        //CAMBIAMOS LA CONFIGURACION DE RECURSOS DE STREAMING
         if(preference==streaming){
             if(streaming.isChecked()){
                 ma.changeSetting(2,false);

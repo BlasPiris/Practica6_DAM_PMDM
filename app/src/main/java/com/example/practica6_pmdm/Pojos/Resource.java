@@ -1,6 +1,7 @@
 package com.example.practica6_pmdm.Pojos;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 public class Resource {
     String name,description,type,uri;

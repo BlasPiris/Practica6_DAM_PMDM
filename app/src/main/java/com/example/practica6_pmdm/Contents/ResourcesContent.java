@@ -3,6 +3,7 @@ package com.example.practica6_pmdm.Contents;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 
 import com.example.practica6_pmdm.Pojos.Resource;
 
@@ -21,8 +22,6 @@ public class ResourcesContent {
 
         String json = null;
         ArrayList<Resource> resourceItems = new ArrayList<Resource>();
-
-
         try {
             InputStream is =
                     c.getAssets().open("recursosList.json");
@@ -53,7 +52,6 @@ public class ResourcesContent {
         } catch (JSONException | IOException e) {
             e.printStackTrace();
         }
-
         return resourceItems;
     }
 }

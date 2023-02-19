@@ -79,7 +79,7 @@ public class ItemFragment extends Fragment {
             }
             ResourcesContent rc=new ResourcesContent();
             ArrayList<Resource> resources=rc.loadResourcesFromJSON(getContext());
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(resources,ma.getSettings()));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(resources,ma.getSettings(),ma));
         }
         return view;
     }

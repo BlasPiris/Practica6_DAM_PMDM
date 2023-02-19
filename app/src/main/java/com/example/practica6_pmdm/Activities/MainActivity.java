@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.ClipData;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,13 +23,28 @@ import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
+    //VARIABLE SELECCION RECURSOS
     Boolean[] settings={true, true, true};
 
+    //OBJETO MEDIA PLAYER
+    private MediaPlayer md;
+
+
+    //SET DE LAS VARIABLES
+
+
+    public void setMd(MediaPlayer md) {
+        this.md = md;
+    }
+
     public Boolean[] getSettings() {
+
         return settings;
     }
 
+    //METODO QUC CAMBIA LA SELECCION DE RECURSOS
     public void changeSetting(int pos, Boolean value) {
+
         this.settings[pos]=value;
     }
 
@@ -45,9 +61,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //METODO QUE NOS MOSTRARÁ LOS SETINGS AL PULSAR EL ENGRANAJE
     @Override
     public boolean onOptionsItemSelected (@NonNull MenuItem item) {
         if(item.getItemId()==R.id.settings){
+            if(md!=null){
+                md.stop();
+            }
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             Fragment settings = new SettingsFragment();
